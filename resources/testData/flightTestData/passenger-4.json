@@ -1,0 +1,11 @@
+{
+  "firstName": "first4",
+  "lastName": "last4",
+  "email": "test@mail.com",
+  "password": "test",
+  "street": "455 main street",
+  "city": "detroit",
+  "zip": "40001",
+  "passengersCount": "4",
+  "expectedPrice": "$2338 USD"
+}

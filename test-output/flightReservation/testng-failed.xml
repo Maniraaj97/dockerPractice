@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [flightReservation]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="passenger-count-1(failed)">
+    <parameter name="totalPrice" value="$584 USD"/>
+    <parameter name="noOfPassengers" value="1"/>
+    <classes>
+      <class name="flightReservationTest.flightReservationTest">
+        <methods>
+          <include name="flightSelectTest"/>
+          <include name="flightSearchTest"/>
+          <include name="reserveConfTest"/>
+          <include name="TearDown"/>
+          <include name="userRegistrationTest"/>
+          <include name="registrationConfirmationTest"/>
+          <include name="SetDriver"/>
+        </methods>
+      </class> <!-- flightReservationTest.flightReservationTest -->
+    </classes>
+  </test> <!-- passenger-count-1(failed) -->
+  <test thread-count="5" name="passenger-count-2(failed)">
+    <parameter name="totalPrice" value="$1169 USD"/>
+    <parameter name="noOfPassengers" value="2"/>
+    <classes>
+      <class name="flightReservationTest.flightReservationTest">
+        <methods>
+          <include name="flightSelectTest"/>
+          <include name="flightSearchTest"/>
+          <include name="reserveConfTest"/>
+          <include name="TearDown"/>
+          <include name="userRegistrationTest"/>
+          <include name="registrationConfirmationTest"/>
+          <include name="SetDriver"/>
+        </methods>
+      </class> <!-- flightReservationTest.flightReservationTest -->
+    </classes>
+  </test> <!-- passenger-count-2(failed) -->
+  <test thread-count="5" name="passenger-count-3(failed)">
+    <parameter name="totalPrice" value="$1753 USD"/>
+    <parameter name="noOfPassengers" value="3"/>
+    <classes>
+      <class name="flightReservationTest.flightReservationTest">
+        <methods>
+          <include name="flightSelectTest"/>
+          <include name="flightSearchTest"/>
+          <include name="reserveConfTest"/>
+          <include name="TearDown"/>
+          <include name="registrationConfirmationTest"/>
+          <include name="userRegistrationTest"/>
+          <include name="SetDriver"/>
+        </methods>
+      </class> <!-- flightReservationTest.flightReservationTest -->
+    </classes>
+  </test> <!-- passenger-count-3(failed) -->
+</suite> <!-- Failed suite [flightReservation] -->

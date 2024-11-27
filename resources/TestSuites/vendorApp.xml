@@ -1,9 +1,8 @@
-<suite name ="vendorApplication">
+<suite name ="vendorApplication" parallel="tests" thread-count="3">
 	<test name="sam-user">
 		<parameter name="testDataPath" value ="resources/testData/vendorTestData/sam.json" />
 		<classes>
-		<class name = "vendorAppTest.vendorAppTest">
-		</class>
+		<class name = "vendorAppTest.vendorAppTest" />
 	</classes>
 	</test>
 	

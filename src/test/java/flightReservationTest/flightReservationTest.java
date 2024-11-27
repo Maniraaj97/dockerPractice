@@ -1,25 +1,25 @@
 package flightReservationTest;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import abstractTest.AbstractTest;
 import flightRes_pageObjects.flightSearch;
 import flightRes_pageObjects.flightSelect;
 import flightRes_pageObjects.registrationConfirmation;
 import flightRes_pageObjects.registrationPage;
 import flightRes_pageObjects.reservationConfirmation;
-import testUtils.AbstractTest;
+import testUtils.Config;
+import testUtils.Constants;
 import testUtils.JsonUtil;
 
 public class flightReservationTest extends AbstractTest{
 	
 	private flightReservationTestData testData;
-
+	
+	
     @BeforeTest
     @Parameters("testDataPath")
     public void setParameters(String testDataPath){
@@ -30,7 +30,7 @@ public class flightReservationTest extends AbstractTest{
 	@Test
 	public void userRegistrationTest() {
 		registrationPage regPage = new registrationPage(driver);
-		regPage.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/reservation-app/index.html");
+		regPage.goTo(Config.get(Constants.FLIGHT_RESERVATION_URL));
 		Assert.assertTrue(regPage.isAt());
 		regPage.PassengerName(testData.firstName(), testData.lastName());
 		regPage.PassengerCred(testData.email(), testData.password());

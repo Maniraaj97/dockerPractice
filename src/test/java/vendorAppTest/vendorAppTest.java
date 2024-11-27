@@ -6,8 +6,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-
-import testUtils.AbstractTest;
+import abstractTest.AbstractTest;
+import testUtils.Config;
+import testUtils.Constants;
 import testUtils.JsonUtil;
 import vendorApp_PageObj.dashboard;
 import vendorApp_PageObj.loginPage;
@@ -17,6 +18,7 @@ public class vendorAppTest extends AbstractTest{
 	 private loginPage lp;
 	 private dashboard dashboardPage;
 	 private vendorTestData testData;
+	 String url = Config.get(Constants.VENDOR_PORTAL_URL);
 	 
 	@BeforeTest
 	@Parameters("testDataPath")
@@ -28,7 +30,7 @@ public class vendorAppTest extends AbstractTest{
 	 
 	 @Test
 	 public void loginTest(){
-        lp.goTo("https://d1uh9e7cu07ukd.cloudfront.net/selenium-docker/vendor-app/index.html");
+        lp.goTo(url);
         Assert.assertTrue(lp.isAt());
         lp.getCredentials(testData.username(), testData.password());
         lp.login();

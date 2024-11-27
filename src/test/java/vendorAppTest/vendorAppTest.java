@@ -29,7 +29,7 @@ public class vendorAppTest extends AbstractTest{
 	 
 	 @Test
 	 public void loginTest(){
-        lp.goTo(Config.get(Constants.VENDOR_PORTAL_URL);
+        lp.goTo(Config.get(Constants.VENDOR_PORTAL_URL));
         Assert.assertTrue(lp.isAt());
         lp.getCredentials(testData.username(), testData.password());
         lp.login();

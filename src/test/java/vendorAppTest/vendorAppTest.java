@@ -18,7 +18,6 @@ public class vendorAppTest extends AbstractTest{
 	 private loginPage lp;
 	 private dashboard dashboardPage;
 	 private vendorTestData testData;
-	 String url = Config.get(Constants.VENDOR_PORTAL_URL);
 	 
 	@BeforeTest
 	@Parameters("testDataPath")
@@ -30,7 +29,7 @@ public class vendorAppTest extends AbstractTest{
 	 
 	 @Test
 	 public void loginTest(){
-        lp.goTo(url);
+        lp.goTo(Config.get(Constants.VENDOR_PORTAL_URL);
         Assert.assertTrue(lp.isAt());
         lp.getCredentials(testData.username(), testData.password());
         lp.login();

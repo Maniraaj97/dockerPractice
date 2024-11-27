@@ -1,22 +1,29 @@
 package abstractTest;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.ITestContext;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
+
+import Listeners.TestListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import testUtils.Config;
 import testUtils.Constants;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.firefox.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.slf4j.*;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-
+@Listeners({TestListener.class})
 public abstract class AbstractTest {
 	
 	
@@ -31,10 +38,11 @@ public abstract class AbstractTest {
     }
 
     @BeforeTest
-    public void setDriver() throws MalformedURLException{
+    public void setDriver(ITestContext ctx) throws MalformedURLException{
     	this.driver = Boolean.parseBoolean(Config.get(Constants.GRID_ENABLED)) ? getRemoteDriver() : getLocalDriver();
     	System.out.println("Test get1");
     	this.driver.manage().window().maximize();
+    	ctx.setAttribute(Constants.DRIVER, this.driver);
     }
     
     private WebDriver getRemoteDriver() throws MalformedURLException {

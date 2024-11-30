@@ -1,0 +1,11 @@
+{
+  "firstName": "first3",
+  "lastName": "last3",
+  "email": "test@mail.com",
+  "password": "test",
+  "street": "101 non main street",
+  "city": "las vegas",
+  "zip": "50001",
+  "passengersCount": "3",
+  "expectedPrice": "$1753 USD"
+}

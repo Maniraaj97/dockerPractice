@@ -9,15 +9,15 @@ import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Logger;
 import utilties.abstractPage;
 
-public class reservationConfirmation extends abstractPage{
+public class reservationConfirmation extends abstractPage {
 
 	private static final org.slf4j.Logger log = LoggerFactory.getLogger(reservationConfirmation.class);
-	@FindBy(css="#flights-confirmation-section .card-body .row:nth-child(1) .col:nth-child(2)")
+	@FindBy(css = "#flights-confirmation-section .card-body .row:nth-child(1) .col:nth-child(2)")
 	private WebElement confNumber;
-	
-	@FindBy(css="#flights-confirmation-section .card-body .row:nth-child(3) .col:nth-child(2)")
+
+	@FindBy(css = "#flights-confirmation-section .card-body .row:nth-child(3) .col:nth-child(2)")
 	private WebElement totPrice;
-	
+
 	public reservationConfirmation(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -28,14 +28,13 @@ public class reservationConfirmation extends abstractPage{
 		this.wait.until(ExpectedConditions.visibilityOf(this.confNumber));
 		return this.confNumber.isDisplayed();
 	}
-	
+
 	public String ticketDetails() {
 		String confirmationNum = this.confNumber.getText();
 		String Price = this.totPrice.getText();
 		log.info("Total Price {} :", Price);
 		return Price;
-		
+
 	}
-	
 
 }

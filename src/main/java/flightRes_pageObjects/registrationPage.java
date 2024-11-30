@@ -8,50 +8,48 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import utilties.abstractPage;
 
-public class registrationPage extends abstractPage{
-	
-	
-	@FindBy(id="firstName")
+public class registrationPage extends abstractPage {
+
+	@FindBy(id = "firstName")
 	private WebElement firstName;
-	
-	@FindBy(id="lastName")
+
+	@FindBy(id = "lastName")
 	private WebElement lastName;
-	
-	@FindBy(id="email")
+
+	@FindBy(id = "email")
 	private WebElement email;
-	
-	@FindBy(id="password")
+
+	@FindBy(id = "password")
 	private WebElement password;
-	
-	@FindBy(name="street")
+
+	@FindBy(name = "street")
 	private WebElement street;
-	
-	@FindBy(name="city")
+
+	@FindBy(name = "city")
 	private WebElement city;
-	
-	@FindBy(id="inputState")
+
+	@FindBy(id = "inputState")
 	private WebElement state;
-	
-	@FindBy(name="zip")
+
+	@FindBy(name = "zip")
 	private WebElement zip;
-	
-	@FindBy(id="register-btn")
+
+	@FindBy(id = "register-btn")
 	private WebElement registerbutton;
-	
-	public registrationPage(WebDriver driver)
-	{
+
+	public registrationPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	public void goTo(String url) {
 		this.driver.get(url);
 	}
-	
+
 	public void PassengerName(String fName, String lName) {
 		this.firstName.sendKeys(fName);
 		this.lastName.sendKeys(lName);
 	}
-	
+
 	public void PassengerCred(String email, String pwd) {
 		this.email.sendKeys(email);
 		this.password.sendKeys(pwd);
@@ -62,7 +60,7 @@ public class registrationPage extends abstractPage{
 		this.city.sendKeys(city);
 		this.zip.sendKeys(zip);
 	}
-		
+
 	public void register() {
 		this.registerbutton.click();
 	}

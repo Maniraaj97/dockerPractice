@@ -10,15 +10,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import utilties.abstractPage;
 
-public class flightSelect extends abstractPage{
-	
-	@FindBy(name="departure-flight")
+public class flightSelect extends abstractPage {
+
+	@FindBy(name = "departure-flight")
 	private List<WebElement> depFlights;
-	
-	@FindBy(name="arrival-flight")
+
+	@FindBy(name = "arrival-flight")
 	private List<WebElement> arrFlights;
-	
-	@FindBy(id="confirm-flights")
+
+	@FindBy(id = "confirm-flights")
 	private WebElement confirmBtn;
 
 	public flightSelect(WebDriver driver) {
@@ -30,12 +30,13 @@ public class flightSelect extends abstractPage{
 		this.wait.until(ExpectedConditions.visibilityOf(this.confirmBtn));
 		return this.confirmBtn.isDisplayed();
 	}
-	
+
 	public void selectFlight() {
 		int random = ThreadLocalRandom.current().nextInt(0, this.arrFlights.size());
 		this.depFlights.get(random).click();
 		this.arrFlights.get(random).click();
 	}
+
 	public void confirm() {
 		this.confirmBtn.click();
 	}

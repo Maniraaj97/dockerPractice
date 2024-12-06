@@ -29,6 +29,7 @@ public class flightReservationTest extends AbstractTest {
 	@Test
 	public void userRegistrationTest() {
 		registrationPage regPage = new registrationPage(driver);
+		System.out.println(Config.get(Constants.FLIGHT_RESERVATION_URL));
 		regPage.goTo(Config.get(Constants.FLIGHT_RESERVATION_URL));
 		Assert.assertTrue(regPage.isAt());
 		regPage.PassengerName(testData.firstName(), testData.lastName());

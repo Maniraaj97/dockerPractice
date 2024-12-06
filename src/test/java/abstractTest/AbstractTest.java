@@ -31,14 +31,14 @@ public abstract class AbstractTest {
 
 	@BeforeSuite
 	public void setupConfig() {
-		System.out.println("Test");
+		//System.out.println("Test");
 		Config.initialise();
 	}
 
 	@BeforeTest
 	public void setDriver(ITestContext ctx) throws MalformedURLException {
 		this.driver = Boolean.parseBoolean(Config.get(Constants.GRID_ENABLED)) ? getRemoteDriver() : getLocalDriver();
-		System.out.println("Test get1");
+		//System.out.println("Test get1");
 		this.driver.manage().window().maximize();
 		ctx.setAttribute(Constants.DRIVER, this.driver);
 	}

@@ -7,12 +7,15 @@ services:
 
   chrome:
     image: selenium/node-chrome:4.20
+    shm_size: '2g'
     depends_on:
       - hub
     environment:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_MAX_SESSIONS=4
 
   firefox:
     image: selenium/node-firefox:4.20
@@ -22,3 +25,29 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_MAX_SESSIONS=4
+
+  vendor-portal:
+    image: Maniraaj/dockerpractice
+    depends_on:
+      - chrome
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - THREAD_COUNT=3
+      - TEST_SUITE=vendorApp.xml
+    volumes:
+      - C:/Users/manir/eclipse-workspace/dockerPractice/output/vendorApplication:/home/dockerpractice/test-output
+
+  flight-reservation:
+    image: Maniraaj/dockerpractice
+    depends_on:
+      - chrome
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - THREAD_COUNT=3
+      - TEST_SUITE=flightReserve.xml
+    volumes:
+      - C:/Users/manir/eclipse-workspace/dockerPractice/output/flightApplication:/home/dockerpractice/test-output

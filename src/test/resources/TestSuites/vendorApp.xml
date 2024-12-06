@@ -1,13 +1,13 @@
 <suite name ="vendorApplication" parallel="tests" thread-count="3">
 	<test name="sam-user">
-		<parameter name="testDataPath" value ="src/test/resources/testData/vendorTestData/sam.json" />
+		<parameter name="testDataPath" value ="testData/vendorTestData/sam.json" />
 		<classes>
 		<class name = "vendorAppTest.vendorAppTest" />
 	</classes>
 	</test>
 	
 	<test name="john-user">
-		<parameter name="testDataPath" value ="src/test/resources/testData/vendorTestData/john.json" />
+		<parameter name="testDataPath" value ="testData/vendorTestData/john.json" />
 		<classes>
 		<class name = "vendorAppTest.vendorAppTest">
 		</class>
@@ -15,7 +15,7 @@
 	</test>
 	
 		<test name="mike-user">
-		<parameter name="testDataPath" value ="src/test/resources/testData/vendorTestData/mike.json" />
+		<parameter name="testDataPath" value ="testData/vendorTestData/mike.json" />
 		<classes>
 		<class name = "vendorAppTest.vendorAppTest">
 		</class>

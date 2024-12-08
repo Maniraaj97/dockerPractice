@@ -27,7 +27,7 @@ Tools Needed:
 
 ### 2. Clone the Repository
 Run the following commands: 
-git clone <repository-url> cd <repository-folder>
+git clone repository-url cd repository-folder
 
 
 ---
